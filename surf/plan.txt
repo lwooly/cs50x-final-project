@@ -1,0 +1,32 @@
+Plan for surf tracker
+
+Features
+Surf check
+- Select spots and summarise data for these spots in a comparison table
+- Data could be current or forecast - future day selection.
+
+Session history
+- Save current data for spot
+- add user rating - star rating
+- add notes
+- upload images
+
+Extensions
+- make data searchable by current tide wind criteria etc. 
+- make mobile compatible?
+- add different days for different spots.
+- allow user to create spot but use data from a nearby location 
+
+Initial steps.
+
+Understand MSW or Surfline API
+
+Layout.html
+app.py
+helper.py
+styles.css - keep simple initially - don't waste time
+User login - allows for multiple people to use site
+
+Can probably use the basis from finance pset9 fairly well but try to code myself.
+
+
