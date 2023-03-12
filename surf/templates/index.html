@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %} 
+Record
+{% endblock %}
+
+{% block body %}
+   <h1> Record surf session </h1>
+  <form>
+    <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Location</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputlocation">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputPassword1" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword3">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>  
+
+
+{% endblock %} 
+

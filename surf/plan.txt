@@ -21,12 +21,54 @@ Initial steps.
 
 Understand MSW or Surfline API
 
-Layout.html
-app.py
+Tasks to develop web app:
+1. Layout.html - include navbar
+2. app.py focus on main function. Get and allow save of api data for a single spot.
+
 helper.py
+
 styles.css - keep simple initially - don't waste time
-User login - allows for multiple people to use site
 
 Can probably use the basis from finance pset9 fairly well but try to code myself.
+User login - allows for multiple people to use site
 
 
+SQL database
+
+users - later
+userid 
+username
+password hash
+
+locations
+location id
+nickname
+spot id
+
+surflinespots
+id
+name
+code
+
+sessions
+userid -implement later
+session_id 
+location_id
+#Get key wave data
+surf_min
+surf_max
+surf_optimal_score
+surf_human relation
+swells[list]
+    height
+    period
+    direction
+#get key wind data
+speed (knots)
+direction
+directionType
+gust
+#could add rising or dropping feature here
+tides 
+User rating
+User comment
