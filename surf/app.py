@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 
 # configure SQL database to store data
-#db = SQL("sqlite:///surf_track.db")
+db = SQL("sqlite:///surftrack.db")
 
 #initial version - assume only one user - add login feature if time capacity
 
@@ -40,9 +40,15 @@ def add_surf_spot():
     else:
         #get spot values from user form
         nickname = request.form.get('spot_nickname')
-        surfline_spot_id = request.form.get(surfline_spot_reference)
+        surfline_spot_id = request.form.get('surfline_spot_reference')
+
+        # validate input? call lookup_forecast and check valid.
 
         #remember user input
+        db.execute("INSERT INTO surf_spots (nickname, surfline_spot_id) VALUES (?, ?)", nickname, surfline_spot_id)
+        
+        return redirect("/")
+
 
 
 

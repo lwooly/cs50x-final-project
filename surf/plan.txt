@@ -47,7 +47,6 @@ spot id
 
 surflinespots
 id
-name
 code
 
 sessions
