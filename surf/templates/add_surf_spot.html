@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %} 
+Add surf spot
+{% endblock %}
+
+{% block body %}
+   <h1> Add surf spot</h1>
+   <form action="/add_surf_spot" method="post">
+    <div class="mb-3">
+      <label for="spot_nickname" class="form-label">Surf spot name</label>
+      <input type="text" class="form-control" id="spot_nickname" name="spot_nickname">
+      <div id="spot_nicknameHelp" class="form-text">Pick a name for the new spot</div>
+    </div>
+    <div class="mb-3">
+        <label for="surfline_spot_reference" class="form-label">Surfline spot reference</label>
+        <input type="text" class="form-control" id="surfline_spot_reference" name="surfline_spot_reference">
+        <div id="surfline_spot_referenceHelp" class="form-text">Enter Surfline Spot Id</div>
+    </div>
+    <p> Add the Surfline.com spot ID for the surf spot for which forecast data will be collected for your spot. Note that this can be any nearby spot.
+        For example The Pipeline in Hawaii (USA) has the following surfline.com URL https://www.surfline.com/surf-report/pipeline/5842041f4e65fad6a7708890 where 5842041f4e65fad6a7708890 is the spotId of the spot.
+    </p>
+
+    <button type="submit" class="btn btn-primary">Add spot</button>
+  </form>
+
+
+{% endblock %} 
+

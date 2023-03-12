@@ -7,9 +7,9 @@ from datetime import  datetime
 #Spot nick name
 #Data source: surfline spotID
 
-def main():
-    functiontest = lookup_forecast("584204204e65fad6a77090d")
-    print(functiontest)
+#def main():
+   # functiontest = lookup_forecast("584204204e65fad6a77090d2")
+    #print(functiontest)
 
 
 # function to return key spot data for the current time 
@@ -27,12 +27,14 @@ def lookup_forecast(surfline_spot_id):
         }
 
     #call API to get spot data
-    spot=SpotForecast(spot_params,verbose=True)
+    spot=SpotForecast(spot_params,verbose=False)
     if spot == None:
-        return print('error could not return data')
+        return None
     
     for item in spot.api_log:
-        print(ForecastGetter)
+        if '400' in str(item):
+            return None 
+
 
     # get key data at the current time. - further work could be to let user select time.
     current_timestamp = datetime.now().timestamp()
@@ -107,7 +109,7 @@ def lookup_forecast(surfline_spot_id):
     return spot_data
 
 
-main()
+#main()
 
 
     

@@ -5,7 +5,7 @@
 from cs50 import SQL
 from flask import Flask, redirect, render_template, request
 from datetime import datetime
-from helpers.py import lookup_forecast
+from helpers import lookup_forecast
 
 app = Flask(__name__)
 
@@ -30,6 +30,23 @@ def index():
 
     #add data to sql using lookup etc.
 
+
+@app.route("/add_surf_spot", methods=['GET', 'POST'])
+def add_surf_spot():
+    # access route via GET
+    if request.method == 'GET':
+        return render_template("add_surf_spot.html")
+    #access route via POST
+    else:
+        #get spot values from user form
+        nickname = request.form.get('spot_nickname')
+        surfline_spot_id = request.form.get(surfline_spot_reference)
+
+        #remember user input
+
+
+
+    
 
 
 
