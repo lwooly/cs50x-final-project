@@ -1,5 +1,7 @@
 from pysurfline import SpotForecast
 from datetime import  datetime
+from flask import render_template
+
 
 # params - spot id to be updated by user input
 
@@ -10,6 +12,9 @@ from datetime import  datetime
 #def main():
    # functiontest = lookup_forecast("584204204e65fad6a77090d2")
     #print(functiontest)
+
+def apology(message, code=400):
+    return render_template('apology.html', message=message, code=code)
 
 
 # function to return key spot data for the current time 
@@ -107,6 +112,9 @@ def lookup_forecast(surfline_spot_id):
     spot_data['tide_height'] = current_tide_data['height']
 
     return spot_data
+
+
+
 
 
 #main()

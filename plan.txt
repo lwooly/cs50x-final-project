@@ -35,7 +35,7 @@ User login - allows for multiple people to use site
 
 SQL database
 
-users - later
+users - add registration and login functionality last.
 userid 
 username
 password hash

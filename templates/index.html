@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %} 
+Record
+{% endblock %}
+
+{% block body %}
+   <h1> Record surf session </h1>
+  <form action="/" method='post'>
+    <!-- Location select menu-->
+    <div class="row mb-3">
+      <label for="location" class="col-sm-2 col-form-label">Location</label>
+      <div class="col-sm-10">
+        <select name="location" id="location">
+          <option disabled value="Location">Location</option>
+          {% for location in locations %}
+          <option value="{{ location }}">{{ location }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <!-- Rating select menu - keep inputs on server to prevent user changing-->
+    <div class="row mb-3">
+      <label for="User_rating" class="col-sm-2 col-form-label">User rating</label>
+      <div class="col-sm-10">
+        <select name="user_rating" id="user_rating">
+          <option disabled value="user_rating">Rating</option>
+          {% for rating in ratings %}
+          <option value="{{ rating }}">{{ rating }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <!-- user text input-->
+    <div class="row mb-3">
+      <label for="user_text" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="user_text">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save session</button>
+  </form>  
+{% endblock %} 
+
