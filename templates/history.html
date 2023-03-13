@@ -1,10 +1,7 @@
 {% extends "layout.html" %}
 
 {% block head %}
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 {% endblock %}
 
 {% block title %} 
@@ -13,29 +10,30 @@ Sessions
 
 {% block body %}
 <!--<p>Inspired by this <a href="http://bootsnipp.com/snippets/featured/panel-tables-with-filter">snippet</a></p>-->
-<div class="container">
+<!-- updated to bootstrap 5-->
+<div class="container-fluid">
     <hr>
-    <div class="row">
-        <div class="panel panel-primary filterable">
-            <div class="panel-heading">
-                <h3 class="panel-title">Users</h3>
+    <div class="row row-cols-12">
+        <div class="card bg-primary filterable">
+            <div class="card-header">
+                <h3 class="h5.card-title">Recorded sessions</h3>
                 <div class="pull-right">
-                    <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+                    <button class="btn btn-secondary btn-xs btn-filter"><span class="bi-filter"></span> Filter</button>
                 </div>
             </div>
-            <table class="table">
+            <table class="table table-hover">
                 <thead>
-                    <tr class="filters">
-                        <th><input type="text" class="form-control" placeholder="Location" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Rating" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Description" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Date" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Forecast" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Size" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Swell" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Wind" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Wind type" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Tide height" disabled></th>
+                    <tr class="filters table-light">
+                        <th><input type="text" class="form-control-plaintext" placeholder="Location" disabled></th>
+                        <th><input type="text" class="form-control-plaintext" placeholder="Rating" disabled></th>
+                        <th><input type="text" class="form-control-plaintext" placeholder="Description" disabled></th>
+                        <th><input type="text" class="form-control-plaintext" placeholder="Date" disabled></th>
+                        <th><input type="text" class="form-control-plaintext" placeholder="Forecast" disabled></th>
+                        <th><input type="text" class="form-control-plaintext" placeholder="Size" disabled></th>
+                        <th><input type="text" class="form-control-plaintext" placeholder="Swell" disabled></th>
+                        <th><input type="text" class="form-control-plaintext" placeholder="Wind" disabled></th>
+                        <th><input type="text" class="form-control-plaintext" placeholder="Wind type" disabled></th>
+                        <th><input type="text" class="form-control-plaintext" placeholder="Tide height" disabled></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,12 +58,17 @@ Sessions
 </div>
 
 <script>
-    // Used JS from <a href="http://bootsnipp.com/snippets/featured/panel-tables-with-filter">snippet</a></p>-->
+    // Used JS from <a href="http://bootsnipp.com/snippets/featured/panel-tables-with-filter">snippet</a></p>-->#
+    // updated to use bootstrap 5.
 $(document).ready(function(){
+    //function that runs when btn filter in filterable parent is clicked
     $('.filterable .btn-filter').click(function(){
+        //finds panel(card) that contains button with parents .filterable
         var $panel = $(this).parents('.filterable'),
+        //find inputs
         $filters = $panel.find('.filters input'),
         $tbody = $panel.find('.table tbody');
+        //check if filters enabled or disabled
         if ($filters.prop('disabled') == true) {
             $filters.prop('disabled', false);
             $filters.first().focus();
@@ -76,6 +79,7 @@ $(document).ready(function(){
         }
     });
 
+    //listen for key ups
     $('.filterable .filters input').keyup(function(e){
         /* Ignore tab key */
         var code = e.keyCode || e.which;
@@ -94,7 +98,7 @@ $(document).ready(function(){
         });
         /* Clean previous no-result if exist */
         $table.find('tbody .no-result').remove();
-        /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
+        /* Show all rows, hide filtered ones */
         $rows.show();
         $filteredRows.hide();
         /* Prepend no-result row if all rows are filtered */
