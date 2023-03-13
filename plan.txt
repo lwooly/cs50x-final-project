@@ -71,3 +71,6 @@ gust
 tides 
 User rating
 User comment
+
+
+[{'session_id': 1, 'datetime': '2023-03-13 10:57:54', 'spot_id': 1, 'surf_max': 2, 'surf_min': 1, 'surf_humanRelation': 'Thigh to waist', 'primary_swell_height': 2.37231, 'primary_swell_period': 14, 'primary_swell_direction': 291.60437, 'wind_speed': 51.25519268, 'wind_direction': 220.57473, 'wind_direction_type': 'Cross-shore', 'wind_gust': 42.96645, 'tide_height': 2.96, 'user_rating': 1, 'user_text': 'Head high and clean', 'nickname': 'LYNMOUTH', 'surfline_spot_id': '5842041f4e65fad6a7708ca2'}, {'session_id': 2, 'datetime': '2023-03-13 17:03:14', 'spot_id': 1, 'surf_max': 3, 'surf_min': 1, 'surf_humanRelation': 'Waist to chest', 'primary_swell_height': 0, 'primary_swell_period': 0, 'primary_swell_direction': 0, 'wind_speed': 61.72295596000001, 'wind_direction': 224.6854, 'wind_direction_type': 'Cross-shore', 'wind_gust': 48.64126, 'tide_height': 6.27, 'user_rating': 1, 'user_text': 'new test', 'nickname': 'LYNMOUTH', 'surfline_spot_id': '5842041f4e65fad6a7708ca2'}]

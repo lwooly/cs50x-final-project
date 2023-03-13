@@ -137,11 +137,9 @@ def add_surf_spot():
 def history():
     '''user to view saved data'''
     #get data from db for all records
-    record_data = db.execute("SELECT * FROM sessions JOIN sessions(spot_id) ON surf_spots(spot_id);")
-    
+    record_data = db.execute("SELECT * FROM sessions JOIN surf_spots ON sessions.spot_id = surf_spots.spot_id ORDER BY session_id DESC;")
 
-
-    return render_template("history.html")
+    return render_template("history.html", record_data=record_data)
 
 
 
