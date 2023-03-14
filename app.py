@@ -42,7 +42,7 @@ def index():
     # user route via POST
     else:
         #get user form input
-``        location = request.form.get('location').upper()
+        location = request.form.get('location').upper()
         user_rating = request.form.get('user_rating')
         user_text = request.form.get('user_text')
 
