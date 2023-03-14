@@ -1,13 +1,18 @@
 body {
+    background-color: darkslategray;
 }
 
 .navbar {
     background-color: darkslategray;
 }
 .navbar-brand {
-    color:whitesmoke;
+    color:white;
     font-size: 2em;
     font-weight: bold;
+}
+
+.nav-link {
+    color:white;
 }
 
 h1 {

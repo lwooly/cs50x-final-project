@@ -12,15 +12,20 @@ Sessions
 <!--<p>Inspired by this <a href="http://bootsnipp.com/snippets/featured/panel-tables-with-filter">snippet</a></p>-->
 <!-- updated to bootstrap 5-->
 <div class="container-fluid">
-    <hr>
+    <div class="container mt-5"
     <div class="row row-cols-12">
-        <div class="card bg-primary filterable">
+        <div class="headings-card card  filterable">
             <div class="card-header">
-                <h3 class="h5.card-title">Recorded sessions</h3>
-                <div class="pull-right">
+                <div class="row">
+                    <div class="col-4">
+                        <h1>Recorded sessions</h3>
+                    </div>
+                <div class="col-8 mb-auto text-end mt-2">
                     <button class="btn btn-secondary btn-xs btn-filter"><span class="bi-filter"></span> Filter</button>
                 </div>
             </div>
+            </div>
+            <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
                     <tr class="filters table-light">
@@ -48,11 +53,14 @@ Sessions
                         <td>{{ '%0.1f' %row['primary_swell_height'] }}ft @ {{ row['primary_swell_period'] }}s <br> {{ '%0.0f' % row['primary_swell_direction'] }}degs </td>
                         <td>{{ '%0.0f' % row['wind_speed'] }}kph @ {{ '%0.0f' % row['wind_direction'] }}degs <br> {{ '%0.0f' % row['wind_gust'] }}kph </td>
                         <td> {{ row['wind_direction_type'] }}</td>
-                        <td>{{ '%0.1f' % row['tide_height'] }}</td>
+                        <td>{{ '%0.1f' % row['tide_height'] }}m</td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
+        </div>
+        </div>
+        </div>
         </div>
     </div>
 </div>
