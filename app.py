@@ -10,10 +10,23 @@ from helpers import lookup_forecast, apology
 app = Flask(__name__)
 
 
+# set debug mode to True
+app.debug = True
+
+
+
 # configure SQL database to store data
 db = SQL("sqlite:///surftrack.db")
 
 ratings = [1, 2, 3, 4, 5]
+
+@app.after_request
+def after_request(response):
+    """Ensure responses aren't cached"""
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Expires"] = 0
+    response.headers["Pragma"] = "no-cache"
+    return response
 
 #initial version - assume only one user - add login feature if time capacity
 
