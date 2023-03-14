@@ -22,7 +22,7 @@ Record
                 <div class="mb-3" >
                   <label for="location" class="form-label">Surf Location</label>
                   <select class="form-select" name="location" id="location">
-                    <option disabled value="Location">Location</option>
+                    <option selected disabled value="Location">Location</option>
                     {% for location in locations %}
                     <option value="{{ location }}">{{ location|title }}</option>
                     {% endfor %}
@@ -35,7 +35,7 @@ Record
                 <div class="mb-3">
                   <label for="User_rating" class="form-label">User rating</label>
                   <select class="form-select" name="user_rating" id="user_rating">
-                    <option disabled value="user_rating">Wave quality</option>
+                    <option selected disabled value="user_rating">Wave quality</option>
                     {% for rating in ratings %}
                     <option value="{{ rating }}">{{ rating }}</option>
                     {% endfor %}
@@ -45,7 +45,7 @@ Record
                 <!-- user text input-->
                 <div class="mb-3">
                   <label for="user_text" class="form-label">Surf conditions</label>
-                  <input type="text" class="form-control" id="user_text" name="user_text" autocomplete="off">
+                  <input placeholder="Size: ? Description: " type="text" class="form-control" id="user_text" name="user_text" autocomplete="off">
                   <div id="DescriptionHelp" class="form-text">Describe the surf conditions. eg. Head high, clean and consistent</div>
                 </div>
                 <div class="mb-3 text-center">

@@ -1,7 +1,8 @@
 Plan for surf tracker
 
 Current key Tasks
-Format app - key task - make it look acceptable before adding other Features
+Format app - key task - make it look acceptable before adding other Features - done
+determine primary_swell
 Wind direction - cardinal points
 Swell direction - arrows - rotate
 When set spot add spot direction allowing for wind calculation. RED YELLOW GREEN.

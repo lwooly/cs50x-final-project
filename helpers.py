@@ -1,7 +1,6 @@
 from pysurfline import SpotForecast
 from datetime import  datetime
-from flask import render_template
-
+from flask import redirect, render_template, request, session
 
 
 def apology(message, code=400):
@@ -83,13 +82,20 @@ def lookup_forecast(surfline_spot_id):
     spot_data['surf_humanRelation'] = current_wave_data['surf_humanRelation']
 
     #swells
-    primary_swell = current_wave_data['swells']
+    swells = current_wave_data['swells']
 
-    #TODO - key primary swell index may not always be 1 - sort swells for max before printing
+    #TODO - key primary swell index may not always be 1 - sort swells for max 
+
+    max_swell_factor = 0
+    for swell in swells:
+        swell_comparison_factor = float(swell['height']) * float(swell['period'])
+        if swell_comparison_factor >= max_swell_factor:
+            max_swell_factor = swell_comparison_factor
+            primary_swell = swell
     
-    spot_data['primary_swell_height'] = primary_swell[1]['height']
-    spot_data['primary_swell_period'] = primary_swell[1]['period']
-    spot_data['primary_swell_direction'] = primary_swell[1]['direction']
+    spot_data['primary_swell_height'] = primary_swell['height']
+    spot_data['primary_swell_period'] = primary_swell['period']
+    spot_data['primary_swell_direction'] = primary_swell['direction']
 
     #wind
 
@@ -103,3 +109,21 @@ def lookup_forecast(surfline_spot_id):
     spot_data['tide_height'] = current_tide_data['height']
 
     return spot_data
+
+
+
+def login_required(f):
+    """
+    From CS50 pset9 finance.
+    
+    
+    Decorate routes to require login.
+
+    https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/
+    """
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if session.get("user_id") is None:
+            return redirect("/login")
+        return f(*args, **kwargs)
+    return decorated_function

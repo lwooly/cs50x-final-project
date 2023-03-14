@@ -111,7 +111,7 @@ def index():
                 user_rating,
                 user_text)
         
-        return redirect('/')
+        return redirect('/history')
 
     
 @app.route("/add_surf_spot", methods=['GET', 'POST'])
@@ -124,6 +124,7 @@ def add_surf_spot():
         #get spot values from user form
         nickname = request.form.get('spot_nickname').upper()
         surfline_spot_id = request.form.get('surfline_spot_reference')
+        spot_direction = request.form.get('direction_spot')
 
         #validate input
         if not nickname:
@@ -140,9 +141,21 @@ def add_surf_spot():
         # call lookup_forecast and check valid.
         if lookup_forecast(surfline_spot_id) == None:
             return apology('Surfline spotId not valid')
+        
+        # validate direction input
+        if not spot_direction:
+            return apology('Enter direction as a positive integer')
+        
+        if spot_direction.isnumeric()==False:
+            return apology('Enter direction as a positive integer')
+
+        if int(spot_direction) < 0 or int(spot_direction) > 359:
+            return apology('Enter direction as a positive integer')
+
+        #calculate wind direction type for specific spot
 
         #remember user input
-        db.execute("INSERT INTO surf_spots (nickname, surfline_spot_id) VALUES (?, ?)", nickname, surfline_spot_id)
+        db.execute("INSERT INTO surf_spots (nickname, surfline_spot_id, direction) VALUES (?, ?,?)", nickname, surfline_spot_id, spot_direction)
         
         return redirect("/")
     

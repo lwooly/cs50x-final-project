@@ -17,17 +17,25 @@ Add surf spot
             
             <div class="mb-3">
               <label for="spot_nickname" class="form-label">Surf spot name</label>
-              <input type="text" class="form-control" id="spot_nickname" name="spot_nickname" autocomplete="off">
-              <div id="spot_nicknameHelp" class="form-text">Pick a name for the spot. <br>Note: Name does not have to match the surflineID.</div>
+              <input placeholder="Name..."type="text" class="form-control" id="spot_nickname" name="spot_nickname" autocomplete="off">
+              <div id="spot_nicknameHelp" class="form-text">Name does not have to match the surflineID.</div>
             </div>
             <div class="mb-3">
+              <label for="spotdirection" class="form-label">Spot direction</label>
+              <input placeholder="e.g. 67"type="text" class="form-control" id="direction_spot" name="direction_spot" autocomplete="off">
+              <div id="direction_referenceHelp" class="form-text">Angle spot faces in degrees clockwise from North.</div>
+          </div>
+            <div class="mb-3">
                 <label for="surfline_spot_reference" class="form-label">Surfline spot reference</label>
-                <input type="text" class="form-control" id="surfline_spot_reference" name="surfline_spot_reference" autocomplete="off">
-                <div id="surfline_spot_referenceHelp" class="form-text">Enter <a href="https://www.surfline.com/">Surfline.com</a>Spot Id.<br>Eg. URL https://www.surfline.com/surf-report/pipeline/5842041f4e65fad6a7708890 where 5842041f4e65fad6a7708890 is the spotId</div>
+                <input placeholder="e.g. 5842041f4e65fad6a7708890" type="text" class="form-control" id="surfline_spot_reference" name="surfline_spot_reference" autocomplete="off">
+                <div id="surfline_spot_referenceHelp" class="form-text">Enter <a href="https://www.surfline.com/">Surfline.com</a> Spot Id.</div>
             </div>
             <div class="mb-3 text-center">
               <button type="submit" class="btn btn-primary">Add spot</button>
             </div>
+
+            <div id="surfline_spot_referenceHelp" class="form-text">Enter <a href="https://www.surfline.com/">Surfline.com</a>Spot Id.<br>Eg. URL https://www.surfline.com/surf-report/pipeline/5842041f4e65fad6a7708890 where 5842041f4e65fad6a7708890 is the spotId</div>
+
           </form>
         </div>
       </div>

@@ -26,7 +26,7 @@ Sessions
             </div>
             </div>
             <div class="table-responsive">
-            <table class="table table-hover">
+            <table id="session_table"class="table table-hover">
                 <thead>
                     <tr class="filters table-light">
                         <th><input type="text" class="form-control-plaintext" placeholder="Location" disabled></th>
@@ -44,7 +44,7 @@ Sessions
                 <tbody>
                     {% for row in record_data %}
                     <tr>
-                        <td>{{ row['nickname'] }}</td>
+                        <td>{{ row['nickname']|title }}</td>
                         <td>{{ row['user_rating'] }}</td>
                         <td>{{ row['user_text'] }}</td>
                         <td>{{ row['datetime'] }}</td>
@@ -115,6 +115,70 @@ $(document).ready(function(){
         }
     });
 });
+
+</script>
+
+<script>
+    //get value of cell for user rating and change colour of cell based on this.
+
+    //get cell in table
+    var table = document.getElementById('session_table');
+    for (let i = 1; i < table.rows.length; i++)
+    {
+        let row = table.rows[i];
+        let rating_cell = row.cells[1].innerHTML;
+
+        if (rating_cell == 1)
+        {
+            row.cells[1].style.backgroundColor = 'rgba(84, 2, 2, 0.5)';
+        }
+        else if (rating_cell == 2)
+        {
+            row.cells[1].style.backgroundColor = 'rgba(171, 49, 49, 0.5)';
+        }
+        else if (rating_cell == 3)
+        {
+            row.cells[1].style.backgroundColor = 'rgba(237, 224, 166, 0.5)';
+        }
+        else 
+        {
+            row.cells[1].style.backgroundColor = 'rgba(121, 145, 99, 0.5)';
+        }
+        
+    }
+
+    //get value of cell for wind direction type and change colour of cell based on this.
+
+    //get cell in table
+    var table = document.getElementById('session_table');
+    for (let i = 1; i < table.rows.length; i++)
+    {
+        let row = table.rows[i];
+        let windtype_cell = row.cells[8].innerHTML;
+
+        if (windtype_cell == ' Onshore')
+        {
+            row.cells[8].style.backgroundColor = 'rgba(84, 2, 2, 0.5)';
+        }
+        else if (windtype_cell == 'Cross-shore')
+        {
+            row.cells[8].style.backgroundColor = 'rgba(171, 49, 49, 0.5)';
+        }
+        else if (windtype_cell == 'Offshore')
+        {
+            row.cells[8].style.backgroundColor = 'rgba(237, 224, 166, 0.5)';
+        }
+        else 
+        {
+            row.cells[8].style.backgroundColor = 'rgba(121, 145, 99, 0.5)';
+        }
+        
+    }
+    
+</script>
+    
+
+
 
 </script>
 
