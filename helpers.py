@@ -1,6 +1,6 @@
 from pysurfline import SpotForecast
 from datetime import  datetime
-from flask import redirect, render_template, request, session
+from flask import render_template
 
 
 def apology(message, code=400):
@@ -109,21 +109,3 @@ def lookup_forecast(surfline_spot_id):
     spot_data['tide_height'] = current_tide_data['height']
 
     return spot_data
-
-
-
-def login_required(f):
-    """
-    From CS50 pset9 finance.
-    
-    
-    Decorate routes to require login.
-
-    https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/
-    """
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if session.get("user_id") is None:
-            return redirect("/login")
-        return f(*args, **kwargs)
-    return decorated_function

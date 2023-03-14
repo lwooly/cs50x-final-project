@@ -166,6 +166,7 @@ def history():
     record_data = db.execute("SELECT * FROM sessions JOIN surf_spots ON sessions.spot_id = surf_spots.spot_id ORDER BY session_id DESC;")
 
     return render_template("history.html", record_data=record_data)
+    
 
 
 
