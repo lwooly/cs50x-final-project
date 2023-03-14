@@ -3,9 +3,9 @@
 #### Description:
 
 Introduction:
-Surftrack is a web based application to enable surfers to record in detail their surf sessions, allowing for a better appreciation of the factors that impact and effect surf conditions at local surf spots. This in turn will allow for a greater understanding of future forecasts provided by Surfline.com, resulting in optimal time and spot choice for the best waves.
+Surftrack is a web based application to enable surfers to record in detail their surf sessions, allowing for a better appreciation of the factors that impact and affect surf conditions at local surf spots. This in turn will allow for a greater understanding of future forecasts provided by Surfline.com, resulting in optimal time and spot choice for the best waves.
 
-Surfline.com is a global surf forecasting website which provides accurate surf forecasting data for hundreds of surf spots around the globe.  Surftrack accesses this data via an API and provides recording, presentation and filtering features to enable a surfer to have a look at current forecasts and compare them to previous records of actual surf sessions.
+Surfline.com is a global surf forecasting website which provides accurate surf forecasting data for hundreds of surf spots around the globe.  Surftrack accesses this data via an API and provides recording, presentation and filtering features to enable a surfer to review current forecasts and compare them to previous records of actual surf sessions.
 
 Files:
 app.py
@@ -22,14 +22,14 @@ The Add surf spot page allows the user to input a surf spot name, direction and 
 All inputs are validated, errors managed and the spot added to the surf_spots table in the surftrack.db database using sqlite3.
 
 '/' (record surf session)
-Record surf session allows the user to select a location from the list of surf spots added with the above form and presented in '/' using jinga., select a surf rating from 1 to 5 with 5 being the highest and then add a description. This is key to the functionality and benefit of the app as it allows the user to compare this real experience data against the forecast data that is retrieved from Surfline.com via the forecast_lookup function in helpers.py for the surf session. This will allow the user to make valid future comparisons and assessments. 
+Record surf session allows the user to select a location from the list of surf spots added with the above form and presented in '/' using jinja., select a surf rating from 1 to 5 with 5 being the highest and then add a description. This is key to the functionality and benefit of the app as it allows the user to compare this real experience data against the forecast data that is retrieved from Surfline.com via the forecast_lookup function in helpers.py for the surf session. This will allow the user to make valid future comparisons and assessments. 
 
 All inputs are validated, errors managed and the spot added to the sessions table in the surftrack.db using sqlite3.
 
 '/history.html'
-history.html presents the data from from the recorded surf sessions in a simple to scan table, created using bootstrap5 cards, headers and tables. The data is extracted from the database and inputed to the html file using a jinja loop. 
+history.html presents the data from from the recorded surf sessions in a simple to scan table, created using bootstrap5 cards, headers and tables. The data is extracted from the database and inputted to the html file using a jinja loop. 
 
-Javascript enhances the usability of the table with a filter button allowing for  additional filtering functionality of the table through any of the column headers. For example a surfer could filter by a specific spot, tide and wind direction to see a previous record. Further to this the table is formated in browser using Javascript to add a Red Amber Green reference system to both the previous surf rating and the wind column. These are the two key data points which are useful to be able to understand initially before further understanding of the presented data.
+Javascript enhances the usability of the table with a filter button allowing for  additional filtering functionality of the table through any of the column headers. For example a surfer could filter by a specific spot, tide and wind direction to see a previous record. Further to this the table is formatted in Browser using Javascript to add a Red Amber Green reference system to both the previous surf rating and the wind column. These are the two key data points which are useful to be able to understand initially before further understanding of the presented data.
 
 
 helpers.py
@@ -38,16 +38,16 @@ Contains the forecast look up function which utilises the pysurfline 0.0.3 pytho
 The file also contains an apology function to present the user with a html file to handle errors.
 
 surftrack.db
-Two tables surf_spots and sessions.
+Two tables: surf_spots and sessions.
 
-Formating
-The webpage is formatted primarily using bootstrap forms and containers.
+Formating:
+The webpage is formatted primarily using bootstrap5 forms and containers.
 A layout.html file is used to reduce html repetition with all previously mentioned files extending it. 
 Includes head files, bootstrap5 navbar and background image containers.
 styles.css
 General css style file containing the background images and style features.
 
-Note: the surftrack web app does not currently have functionality for multiple users.
+Note: the Surftrack web app does not currently have functionality for multiple users.
 
 
 
