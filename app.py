@@ -5,6 +5,7 @@
 from cs50 import SQL
 from flask import Flask, redirect, render_template, request
 from datetime import datetime
+
 from helpers import lookup_forecast, apology
 
 app = Flask(__name__)
