@@ -12,7 +12,7 @@ def lookup_forecast(surfline_spot_id):
 
     # use pysurfline package to request spot data from the surfline.com API: https://giocaizzi.github.io/pysurfline/index.html
     # https://pypi.org/project/pysurfline/#description
-    # note that this application is to be used for personal use only.  
+      
 
     #define surfline spot parameters
     spot_params={
@@ -28,7 +28,7 @@ def lookup_forecast(surfline_spot_id):
     
     for item in spot.api_log:
         if '400' in str(item):
-            return None 
+            return None
 
 
     # get key data at the current time. - further work could be to let user select time.
